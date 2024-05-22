@@ -1,0 +1,15 @@
+.card {
+  width: 323px;
+  position: relative;
+  justify-content: center;
+}
+
+.card__name {
+  position: absolute;
+  top: 15px;
+  margin: 0;
+}
+
+.card__image {
+  width: 100%;
+}

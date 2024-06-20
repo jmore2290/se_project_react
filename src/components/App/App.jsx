@@ -36,6 +36,7 @@ function App() {
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
+        console.log(filteredData);
       })
       .catch(console.error);
   }, []);
@@ -75,18 +76,21 @@ function App() {
           <legend className="modal__legend">Select the weather type</legend>
           <label htmlFor="hot" className="modal__label modal__label_type_radio">
             <input id="hot" type="radio" className="modal__radio-input" />
+               Hot
           </label>
           <label
             htmlFor="warm"
             className="modal__label modal__label_type_radio"
           >
             <input id="warm" type="radio" className="modal__radio-input" />
+               Warm
           </label>
           <label
             htmlFor="cold"
             className="modal__label modal__label_type_radio"
           >
             <input id="cold" type="radio" className="modal__radio-input" />
+               Cold
           </label>
         </fieldset>
       </ModalWithForm>

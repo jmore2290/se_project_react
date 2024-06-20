@@ -7,6 +7,7 @@
 }
 
 .weather-card__temp {
+  font-family: "CabinetGrotesk-Bold", sans-serif;
   font-size: 36px;
   line-height: 40px;
   margin: 0;

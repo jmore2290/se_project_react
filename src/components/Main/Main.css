@@ -6,3 +6,8 @@
   list-style-type: none;
   gap: 21px;
 }
+
+.cards__text{
+  font-family: "CabinetGrotesk-Bold", sans-serif;
+  font: 20px;
+}

@@ -2,12 +2,24 @@
   width: 323px;
   position: relative;
   justify-content: center;
+  position: relative;
+  display: flex;
 }
 
 .card__name {
-  position: absolute;
-  top: 15px;
+  font-family: "CabinetGrotesk-Bold", sans-serif;
+  background-color: white;
+  font: 16px;
   margin: 0;
+}
+
+.card__name-container {
+  display: flex;
+  position: absolute;
+  margin: 0;
+  top: 16px;
+  gap: 4px;
+  align-items: center;
 }
 
 .card__image {

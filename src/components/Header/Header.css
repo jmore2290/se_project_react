@@ -6,6 +6,10 @@
 
 .header__add-clothes-btn {
   margin: 0 20px 0 auto;
+  font-family: "CabinetGrotesk-Bold", sans-serif;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .header__logo {
@@ -19,9 +23,11 @@
 }
 
 .header__username {
+  font-family: "CabinetGrotesk-Bold", sans-serif;
   margin: 0;
 }
 
 .header__date-and-location {
+  font-family: "CabinetGrotesk-Bold", sans-serif;
   margin: 0;
 }

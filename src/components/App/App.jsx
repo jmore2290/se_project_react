@@ -12,7 +12,7 @@ import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, apiKey } from "../../utils/constants";
 import {getItems, addNewItem} from "../../utils/Api";
-import {CurrentTemperatureUnitContext} from "../contexts/CurrentTemperatureUnitContext";
+import {CurrentTemperatureUnitContext} from "../../utils/contexts/CurrentTemperatureUnitContext";
 
 function App() {
   const [weatherData, setWeatherData] = useState({

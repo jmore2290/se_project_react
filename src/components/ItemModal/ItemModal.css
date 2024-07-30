@@ -73,5 +73,21 @@
 .modal__footer{
   padding-top: 20px;
   padding-left: 32px;
+  padding-right: 32px;
   padding-bottom: 32px;
+}
+
+.modal__footer-top{
+  display: flex;
+  flex-direction: row;
+  gap: 250px;
+}
+
+.modal__delete{
+  border: none;
+  color: #FF4D00;
+  font-size: 20px;
+  background-color: white;
+  line-height: 24px;
+  cursor: pointer;
 }

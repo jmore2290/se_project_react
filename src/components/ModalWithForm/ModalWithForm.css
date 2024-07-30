@@ -34,7 +34,7 @@
   width: 100%;
 }
 
-.modal__label{
+.modal__label {
   font-family: "CabinetGrotesk-Bold", sans-serif;
   font: 40px;
   margin-bottom: 8px;
@@ -42,7 +42,7 @@
   line-height: 20px;
 }
 
-.modal__label_type_radio{
+.modal__label_type_radio {
   font-weight: normal;
   font-family: "CabinetGrotesk-Bold", sans-serif;
 }
@@ -55,7 +55,7 @@
 }
 
 .modal__input {
- /* display: block;*/
+  /* display: block;*/
   outline: 0;
   margin-bottom: 24px;
   border-width: 0 0 2px;
@@ -83,17 +83,18 @@
   width: 100%;
 }
 
-.modal__submit{
+.modal__submit {
   font-family: "CabinetGrotesk-Bold", sans-serif;
   color: white;
   font-weight: 700;
   width: 124px;
   height: 36px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 255);
   border: none;
+  cursor: pointer;
 }
 
-.modal__radio-input{
+.modal__radio-input {
   margin-right: 5px;
 }
 

@@ -109,12 +109,6 @@
       "_id": 17
     },
     {
-      "name": "Glovers",
-      "weather": "warm",
-      "imageUrl": "https://zpacks.com/cdn/shop/products/zpacks-ultralight-possumdown-gloves_2048x.jpg?v=1575921409",
-      "_id": 18
-    },
-    {
       "name": "Armor",
       "weather": "hot",
       "imageUrl": "https://www.by-the-sword.com/images/product/large/GH0092.jpg",
@@ -125,6 +119,36 @@
       "weather": "cold",
       "imageUrl": "https://guide-images.cdn.ifixit.com/igi/KGdkYcSbZNVOmL5I.large",
       "_id": 20
+    },
+    {
+      "name": "French Beret",
+      "weather": "cold",
+      "imageUrl": "https://www.hats.com/media/catalog/product/b/5/b512_rd608_main_1.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=600&width=600&canvas=600:600",
+      "_id": 21
+    },
+    {
+      "name": "Blue Suede Shoes",
+      "weather": "",
+      "imageUrl": "https://www.theleathersouq.com/cdn/shop/products/2279.1.jpg?v=1626419951",
+      "_id": 25
+    },
+    {
+      "name": "Kilt",
+      "weather": "",
+      "imageUrl": "https://i.pinimg.com/736x/97/7a/00/977a00c23dedfeb4fbb99a54978ea211.jpg",
+      "_id": 27
+    },
+    {
+      "name": "Scooter",
+      "weather": "",
+      "imageUrl": "https://www.datocms-assets.com/119921/1714133449-kawasakij300.jpg?auto=format&w=800",
+      "_id": 29
+    },
+    {
+      "name": "Scarf",
+      "weather": "",
+      "imageUrl": "https://media.parttwo.com/images/fiery-red-scarf.jpg?i=AGyD0Rfo2wg/271881&mw=610",
+      "_id": 31
     }
   ]
 }

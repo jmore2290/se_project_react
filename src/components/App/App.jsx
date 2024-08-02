@@ -49,7 +49,7 @@ function App() {
     addNewItem(values).then((item) => {
       console.log(item);
       const card = item;
-      setClothingItems([...clothingItems, card]);
+      setClothingItems([card, ...clothingItems]);
       //console.log("initial cards after adding: ", clothingItems);
       closeActiveModal();
     })

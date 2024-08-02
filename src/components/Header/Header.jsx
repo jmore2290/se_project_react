@@ -13,10 +13,10 @@ function Header({ handleAddClick, weatherData }) {
   return (
     <header className="header">
       <Link to="/">
-      <img className="header__logo" src={logo} />
+      <img className="header__logo" alt="Header Logo"src={logo} />
       </Link>
       <p className="header__date-and-location">
-        {currentDate} and {weatherData.city}
+        {currentDate}, {weatherData.city}
       </p>
       <ToggleSwitch/>
       <button

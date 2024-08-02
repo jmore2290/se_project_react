@@ -149,6 +149,18 @@
       "weather": "",
       "imageUrl": "https://media.parttwo.com/images/fiery-red-scarf.jpg?i=AGyD0Rfo2wg/271881&mw=610",
       "_id": 31
+    },
+    {
+      "name": "Baseball Cap",
+      "weather": "warm",
+      "imageUrl": "https://i.ebayimg.com/images/g/~TgAAOSwqQVj78yU/s-l1200.webp",
+      "_id": 32
+    },
+    {
+      "name": "Boxing Gloves",
+      "weather": "warm",
+      "imageUrl": "https://i5.walmartimages.com/seo/Everlast-12-Oz-Black-Pro-Style-Training-Boxing-Gloves_47041e39-8472-439e-b9ca-f27a1566d4e4_1.d5ba783a8abc5f0f15e08ad2f7bb6e86.jpeg",
+      "_id": 33
     }
   ]
 }

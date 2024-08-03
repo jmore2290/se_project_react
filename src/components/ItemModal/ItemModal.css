@@ -30,7 +30,7 @@
   position: fixed;
 }
 
-.modal__opened {
+.modal_opened {
   visibility: visible;
 }
 

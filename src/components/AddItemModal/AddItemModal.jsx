@@ -52,7 +52,7 @@ return (
         onChange={handleNameChange}
       />
     </label>
-    <label htmlFor="ImageUrl" className="modal__label">
+    <label htmlFor="imageUrl" className="modal__label">
       Image{" "}
       <input
         type="text"

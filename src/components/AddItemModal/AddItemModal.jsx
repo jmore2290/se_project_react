@@ -8,7 +8,7 @@ const AddItemModal = ({handleCloseModal, onAddItem, isOpen}) =>{
     const [imageUrl, setUrl] = useState("");
     const [weather, setWeather] = useState("");
     const handleNameChange = (e) => {
-        console.log(e.target.value);
+        console.log("surprise value");
         setName(e.target.value);
     }
 

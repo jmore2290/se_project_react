@@ -43,7 +43,7 @@ return (
   >
     <label htmlFor="name" className="modal__label">
       Name{" "}
-      <input
+      <input 
         type="text"
         className="modal__input"
         id="name"

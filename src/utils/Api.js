@@ -10,6 +10,7 @@ function addNewItem({ name, imageUrl, weather }) {
     method: "POST",
     headers: {
       "Content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("token")}`
     },
     body: JSON.stringify({
       name,
@@ -22,6 +23,13 @@ function addNewItem({ name, imageUrl, weather }) {
 function deleteItem(id){
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
+    headers: {
+      "Content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+    body: JSON.stringify({
+      id,
+    })
   }).then(processServerResponse);
 }
 

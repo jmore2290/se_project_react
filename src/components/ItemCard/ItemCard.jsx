@@ -1,9 +1,19 @@
 import "./ItemCard.css";
+import {useContext} from 'react';
+import {CurrentUserContext} from "../../utils/contexts/CurrentUserContext.jsx";
 
-function ItemCard({ item, onCardClick }) {
+function ItemCard({ item, onCardClick, onCardLike }) {
+  const currentUser = useContext(CurrentUserContext);
+
   const handleCardClick = () => {
     onCardClick(item);
   };
+
+  const handleLike = () =>{
+    onCardLike(item);
+  }
+
+
   return (
     <li className="card">
       <div className="card__name-container">

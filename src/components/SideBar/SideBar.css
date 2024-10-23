@@ -6,4 +6,29 @@
 .sidebar__username {
   white-space: nowrap;
   margin-left: 16px;
+  font-size: 20px;
+}
+
+.sidebar__avatar {
+  width: 56px;
+  border-radius: 50%;
+}
+
+.sidebar__editprofile {
+  font-family: "CabinetGrotesk-Bold", sans-serif;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 8px 0 0 0;
+  font-size: 20px;
+
+}
+
+.sidebar__logout {
+  font-family: "CabinetGrotesk-Bold", sans-serif;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 8px 0 0 0;
+  font-size: 20px;
 }

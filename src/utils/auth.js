@@ -16,17 +16,6 @@ function signUpUser({ name, avatar, email, password }) {
     }).then(processServerResponse);
   }
 
-  /*
-  function signInUser({email, password}){
-    return fetch(`${baseUrl}/signin`, {
-       method: "POST",
-       headers: {
-        "Content-type": "application/json",
-       },
-       body: JSON.stringify({email, password}),
-    });
-    }
-    */
 
   const signInUser = async (email, password) => {
       return fetch(`${baseUrl}/signin`, {
@@ -35,13 +24,7 @@ function signUpUser({ name, avatar, email, password }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
-      }).then((res) => {
-        if (res) {
-          console.log(res.token);
-          localStorage.setItem("token", res.token);
-          return res;
-        }
-      });
+      }).then(processServerResponse);
     };
 
  

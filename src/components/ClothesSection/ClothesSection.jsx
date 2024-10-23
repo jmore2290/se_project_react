@@ -3,8 +3,12 @@ import { defaultClothingItems } from "../../utils/constants";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemCard from "../ItemCard/ItemCard";
 import "./ClothesSection.css";
+import {useContext} from "react";
+import { CurrentUserContext } from "../../utils/contexts/CurrentUserContext";
 
 const ClothesSection = ({handleCardClick, handleAddClick, clothingArray}) =>{
+
+     const currentUser = useContext(CurrentUserContext);
 
      return (
         <div className="clothes-section">
@@ -14,15 +18,13 @@ const ClothesSection = ({handleCardClick, handleAddClick, clothingArray}) =>{
         type="button" className="clothes-section__add-item-btn" >+ Add New</button>
             </div>
             <ul className="clothes-section__items">
-          {clothingArray
+          {clothingArray.filter(card => card.owner === currentUser._id)
             .map((item) => {
-              return (
-                <ItemCard
+     return  <ItemCard
                   key={item._id}
                   item={item}
                   onCardClick={handleCardClick}
-                />
-              );
+            />
             })}
         </ul>
         </div>

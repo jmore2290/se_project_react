@@ -24,6 +24,22 @@
   align-items: center;
 }
 
+.card__notliked {
+  background: transparent url("../../assets/button-notliked.svg") center no-repeat;
+  cursor: pointer;
+  width: 20px;
+  height: 25px;
+  border: none;  
+}
+
+.card__liked {
+  background:  transparent url("../../assets/button-liked.svg") center no-repeat;
+  cursor: pointer;
+  width: 28px;
+  height: 25px;
+  border: none;
+}
+
 .card__image {
   width: 100%;
   border-radius: 16px;

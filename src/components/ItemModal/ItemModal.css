@@ -91,3 +91,11 @@
   line-height: 24px;
   cursor: pointer;
 }
+
+.modal__delete-visible {
+  visibility: visible;
+}
+
+.modal__delete-hidden {
+  visibility: hidden;
+}

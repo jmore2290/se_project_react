@@ -12,6 +12,11 @@
   cursor: pointer;
 }
 
+.header__avatar {
+  border-radius: 50%;
+  width: 40px;
+}
+
 .header__logo {
   margin-right: 24px;
 }

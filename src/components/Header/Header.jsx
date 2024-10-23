@@ -35,8 +35,9 @@ function Header({ handleAddClick, isLoggedIn, weatherData, handleLoginClick, han
       {isLoggedIn ? (   
          <Link to="/profile" className="header__link">
          <div className="header__user-container">
-           <p className="header__username">Terrence Tegegne</p>
-           <img src={avatar} alt="Terrence Tegegne" className="header__avatar" />
+           <p className="header__username">{currentUser.name}</p>
+           {currentUser.avatar ? (<img src={currentUser.avatar} alt={currentUser.name} className="header__avatar" />)
+            :(<span>{(currentUser.name).toUpperCase.charAt(0)}</span>)}
          </div>
          </Link>
       ):( 

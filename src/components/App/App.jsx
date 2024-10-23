@@ -15,7 +15,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, apiKey } from "../../utils/constants";
-import {getItems, addNewItem, deleteItem} from "../../utils/Api";
+import {getItems, addNewItem, deleteItem, addCardLike, removeCardLike} from "../../utils/Api";
 import * as Auth from "../../utils/auth";
 import {CurrentTemperatureUnitContext} from "../../utils/contexts/CurrentTemperatureUnitContext";
 import {CurrentUserContext} from "../../utils/contexts/CurrentUserContext";
@@ -62,25 +62,26 @@ function App() {
       setActiveModal("edit-profile");
   }
 
-  const handleCardLike = ({ id, isLiked }) => {
-    const token = localStorage.getItem("jwt");
+  const handleCardLike = ( id, isLiked ) => {
+    const token = localStorage.getItem("token");
     !isLiked
       ? 
-        api
-          .addCardLike(id, token)
+        addCardLike(id, token)
           .then((updatedCard) => {
-            setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard : item))
+            console.log(updatedCard);
+            setClothingItems((clothingItems) =>
+              clothingItems.map((item) => (item._id === id ? updatedCard.data : item))
             );
           })
           .catch((err) => console.log(err))
       : 
-        api
-          .removeCardLike(id, token) 
+        removeCardLike(id, token) 
           .then((updatedCard) => {
-            setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard : item))
+            const filterCards = clothingItems.map(
+              (item) => (item._id === id ? updatedCard.data : item)
             );
+
+            setClothingItems(filterCards);
           })
           .catch((err) => console.log(err));
   };
@@ -126,8 +127,8 @@ function App() {
           .then((data) =>{
                  setActiveModal("");
                  setIsLoggedIn(true);
-                 setCurrentUser(data);
                  console.log(data);
+                 loginUser({email, password});
           })
           .catch(console.error);
   };
@@ -137,11 +138,9 @@ function App() {
         console.log(password);
         Auth.signInUser(email, password)
           .then((data) =>{
-              
             if (data) {
               setIsLoggedIn(true);
-              setCurrentUser(data.token);
-              console.log(currentUser);
+              setCurrentUser(data.user);
               console.log(data.token);
               setActiveModal("");
               localStorage.setItem("token", data.token);
@@ -182,6 +181,7 @@ function App() {
       .catch(console.error);
   }, []);
 
+  
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -194,6 +194,7 @@ function App() {
         .catch((err) => console.error(err.message));
     }
   }, [isLoggedIn]);
+  
 
   useEffect(() => {
      getItems().then((data) => {
@@ -209,7 +210,7 @@ function App() {
         <Header handleAddClick={handleAddClick} isLoggedIn={isLoggedIn} weatherData={weatherData} handleLoginClick={handleLoginClick} handleRegisterClick={handleRegisterClick}/>
 
         <Routes>
-           <Route path="/" element={<Main weatherData={weatherData} handleCardClick={handleCardClick} clothingArray={clothingItems} onCardLike={handleCardLike}/>}/>
+           <Route path="/" element={<Main isLoggedIn={isLoggedIn} weatherData={weatherData} handleCardClick={handleCardClick} clothingArray={clothingItems} onCardLike={handleCardLike}/>}/>
            <Route
             path="/profile"
             element={
@@ -230,6 +231,7 @@ function App() {
          isOpen={activeModal ==="add-garment"}
          />
       <ItemModal
+        isLoggedIn={isLoggedIn}
         activeModal={activeModal}
         card={selectedCard}
         closeActiveModal={closeActiveModal}

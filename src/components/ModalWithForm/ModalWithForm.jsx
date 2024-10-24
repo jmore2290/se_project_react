@@ -6,7 +6,7 @@ function ModalWithForm({
   buttonText,
   isOpen,
   closeActiveModal,
-  onSubmit
+  onSubmit,
 }) {
   console.log(isOpen);
   console.log(closeActiveModal);

@@ -1,4 +1,4 @@
-import { processServerResponse} from "./processServResponse";
+import { processServerResponse } from "./processServResponse";
 const baseUrl = "http://localhost:3001";
 
 function getItems() {
@@ -10,7 +10,7 @@ function addNewItem({ name, imageUrl, weather }) {
     method: "POST",
     headers: {
       "Content-type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`
+      authorization: `Bearer ${localStorage.getItem("token")}`,
     },
     body: JSON.stringify({
       name,
@@ -20,7 +20,7 @@ function addNewItem({ name, imageUrl, weather }) {
   }).then(processServerResponse);
 }
 
-function deleteItem(id){
+function deleteItem(id) {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: {
@@ -29,27 +29,27 @@ function deleteItem(id){
     },
     body: JSON.stringify({
       id,
-    })
+    }),
   }).then(processServerResponse);
 }
 
-function addCardLike(id, token){
-  return fetch(`${baseUrl}/items/${id}/likes`,{
+function addCardLike(id, token) {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "PUT",
     headers: {
       "Content-type": "application/json",
       authorization: `Bearer ${token}`,
-    }
+    },
   }).then(processServerResponse);
 }
 
-function removeCardLike(id, token){
-  return fetch(`${baseUrl}/items/${id}/likes`,{
+function removeCardLike(id, token) {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "DELETE",
     headers: {
       "Content-type": "application/json",
       authorization: `Bearer ${token}`,
-    }
+    },
   }).then(processServerResponse);
 }
 

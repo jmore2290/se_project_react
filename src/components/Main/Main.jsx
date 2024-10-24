@@ -1,12 +1,18 @@
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import { defaultClothingItems } from "../../utils/constants";
-import {useState, useContext} from "react";
+import { useState, useContext } from "react";
 import { CurrentTemperatureUnitContext } from "../../utils/contexts/CurrentTemperatureUnitContext";
 import "./Main.css";
 
-function Main({ isLoggedIn, weatherData, handleCardClick, clothingArray, onCardLike}) {
-  const {currentTemperatureUnit} = useContext(CurrentTemperatureUnitContext);
+function Main({
+  isLoggedIn,
+  weatherData,
+  handleCardClick,
+  clothingArray,
+  onCardLike,
+}) {
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const temp = weatherData?.weather?.temperature[currentTemperatureUnit] || 999;
   console.log(clothingArray);
 

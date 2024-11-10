@@ -12,13 +12,9 @@ function WeatherCard({ weatherData }) {
     );
   });
 
-  console.log(weatherData.isDay);
-  console.log(weatherData.condition);
 
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  console.log(currentTemperatureUnit);
   const temp = weatherData?.weather?.temperature[currentTemperatureUnit] || 999;
-  console.log(temp);
   /*
   let weatherOption;
   if (filteredOptions.length === 0) {

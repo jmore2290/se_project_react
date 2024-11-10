@@ -62,6 +62,16 @@ function App() {
     setActiveModal("register");
   };
 
+  const logToRegister = () => {
+    closeActiveModal();
+    handleRegisterClick();
+  }
+
+  const registerToLog = () =>{
+    closeActiveModal();
+    handleLoginClick();
+  }
+
   const handleLoginClick = () => {
     setActiveModal("logging-in");
   };
@@ -98,10 +108,8 @@ function App() {
     console.log(values.name);
     addNewItem(values)
       .then((item) => {
-        console.log(item);
         const card = item;
         setClothingItems([card, ...clothingItems]);
-        //console.log("initial cards after adding: ", clothingItems);
         closeActiveModal();
       })
       .catch(console.error);
@@ -146,6 +154,7 @@ function App() {
           console.log(data.token);
           setActiveModal("");
           localStorage.setItem("token", data.token);
+          console.log(localStorage.getItem("token"));
         }
       })
       .catch(console.error);
@@ -180,15 +189,22 @@ function App() {
       .catch(console.error);
   }, []);
 
+
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
+    //localStorage.removeItem("token");
+    console.log(localStorage.getItem("token"));
+    if (localStorage.getItem("token")) {
+      const token = localStorage.getItem("token");
       setIsLoggedIn(true);
       Auth.getUser(token)
         .then((res) => {
+          setCurrentUser(res);
+          console.log(res.token);
           console.log(res);
         })
-        .catch((err) => console.error(err.message));
+        .catch((err) => {
+          console.log(err);
+        });
     }
   }, [isLoggedIn]);
 
@@ -253,7 +269,7 @@ function App() {
           />
           <ItemModal
             isLoggedIn={isLoggedIn}
-            activeModal={activeModal}
+            isOpen={activeModal === "preview"}
             card={selectedCard}
             closeActiveModal={closeActiveModal}
             onDelete={handleDeleteCard}
@@ -262,11 +278,13 @@ function App() {
             isOpen={activeModal === "logging-in"}
             closeActiveModal={closeActiveModal}
             onLogin={loginUser}
+            logToRegister={logToRegister}
           />
           <RegisterModal
             isOpen={activeModal === "register"}
             closeActiveModal={closeActiveModal}
             onRegister={registerUser}
+            registerToLog={registerToLog}
           />
           <EditProfileModal
             isOpen={activeModal === "edit-profile"}

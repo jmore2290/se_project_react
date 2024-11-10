@@ -8,8 +8,6 @@ function ModalWithForm({
   closeActiveModal,
   onSubmit,
 }) {
-  console.log(isOpen);
-  console.log(closeActiveModal);
   return (
     <div className={isOpen ? `modal modal_opened` : `modal_closed`}>
       <div className="modal__container">

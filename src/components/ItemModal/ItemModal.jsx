@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 function ItemModal({
   isLoggedIn,
-  activeModal,
+  isOpen,
   card,
   closeActiveModal,
   onDelete,
@@ -19,12 +19,16 @@ function ItemModal({
   }
 
   console.log(isOwn);
+  console.log(isOpen);
+  console.log(card?._id);
+  console.log(card);
+  console.log(localStorage.getItem("token"));
   // Creating a variable which you'll then set in `className` for the delete button
   const itemDeleteButtonClassName = `modal__delete ${
     isOwn ? "modal__delete-visible" : "modal__delete-hidden"
   }`;
   return (
-    <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
+    <div className={isOpen ? `modal modal_opened` : `modal_closed`}>
       <div className="modal__content modal__content_type_image">
         <button onClick={closeActiveModal} className="modal__close"></button>
         <img

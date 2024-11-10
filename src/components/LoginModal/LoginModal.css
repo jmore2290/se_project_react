@@ -1,0 +1,36 @@
+ .modal__register-link {
+    font-family: "CabinetGrotesk-Bold", sans-serif;
+    font-size: 16px;
+    transition: 0.2s;
+    position: relative;
+    top: 28px;
+    left: 140px;
+    margin-bottom: -44px;
+    width: fit-content;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+
+  .modal__fieldset{
+      border: none;
+      padding: 0;
+      width: fit-content;
+
+  }
+
+  .modal__register-sidebar{
+    margin: 0;
+  }
+
+ .modal__label{
+     margin-top: 24px;
+
+  }
+
+  .modal__input{
+    margin-top: 8px;
+  }
+
+  

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./LoginModal.css";
 
-const LoginModal = ({ closeActiveModal, onLogin, isOpen }) => {
+const LoginModal = ({ closeActiveModal, onLogin, isOpen, logToRegister}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -59,9 +59,9 @@ const LoginModal = ({ closeActiveModal, onLogin, isOpen }) => {
         </label>
       </fieldset>
       <p className="modal__register-sidebar">
-        <Link className="modal__register-link" to="/">
-          Register
-        </Link>
+        <button className="modal__register-link" type="button" onClick={logToRegister}>
+          or Sign Up
+        </button>
       </p>
     </ModalWithForm>
   );

@@ -33,12 +33,7 @@ const getUser = () => {
       "Content-Type": "application/json",
       authorization: `Bearer ${localStorage.getItem("token")}`,
     },
-  }).then((res) => {
-    if (res) {
-      localStorage.setItem("token", res.token);
-      return res;
-    }
-  });
+  }).then(processServerResponse);
 };
 
 const updateUser = (name, avatar) => {

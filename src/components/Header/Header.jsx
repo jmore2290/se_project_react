@@ -15,6 +15,9 @@ function Header({
 }) {
   const currentUser = useContext(CurrentUserContext);
   console.log(currentUser);
+  console.log(isLoggedIn);
+  //console.log(currentUser.name);
+  console.log(currentUser);
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -29,15 +32,17 @@ function Header({
         {currentDate}, {weatherData.city}
       </p>
       <ToggleSwitch />
-      <button
+      
+
+      {isLoggedIn ? (
+        <div className="header__user-loggedin">
+        <button
         onClick={handleAddClick}
         type="button"
         className="header__add-clothes-btn"
       >
         + Add clothes
       </button>
-
-      {isLoggedIn ? (
         <Link to="/profile" className="header__link">
           <div className="header__user-container">
             <p className="header__username">{currentUser.name}</p>
@@ -48,16 +53,17 @@ function Header({
                 className="header__avatar"
               />
             ) : (
-              <span>{currentUser.name.toUpperCase.charAt(0)}</span>
+              <span>{currentUser.name}</span>
             )}
           </div>
         </Link>
+        </div>
       ) : (
-        <div>
-          <button type="button" onClick={handleLoginClick}>
+        <div className="header__user-loggedout">
+          <button className="header__auth-btn" type="button" onClick={handleLoginClick}>
             Log-In
           </button>
-          <button type="button" onClick={handleRegisterClick}>
+          <button className="header__auth-btn" type="button" onClick={handleRegisterClick}>
             Register
           </button>
         </div>

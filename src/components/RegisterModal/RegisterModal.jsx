@@ -3,7 +3,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState, useEffect } from "react";
 import "./RegisterModal.css";
 
-const RegisterModal = ({ closeActiveModal, onRegister, isOpen }) => {
+const RegisterModal = ({ closeActiveModal, onRegister, isOpen, registerToLog}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -90,6 +90,11 @@ const RegisterModal = ({ closeActiveModal, onRegister, isOpen }) => {
           onChange={handleAvatarChange}
         />
       </label>
+      <p className="modal__signup-sidebar">
+        <button className="modal__signup-link" type="button" onClick={registerToLog}>
+          or Log In
+        </button>
+      </p>
     </ModalWithForm>
   );
 };

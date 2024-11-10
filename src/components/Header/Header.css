@@ -5,7 +5,14 @@
 }
 
 .header__add-clothes-btn {
-  margin: 0 20px 0 20px;
+  margin: 0 20px 0 0;
+  font-family: "CabinetGrotesk-Bold", sans-serif;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.header__auth-btn{
   font-family: "CabinetGrotesk-Bold", sans-serif;
   background-color: transparent;
   border: none;
@@ -29,7 +36,7 @@
 
 .header__username {
   font-family: "CabinetGrotesk-Bold", sans-serif;
-  margin: 0;
+  margin-right: 20px;
 }
 
 .header__date-and-location {
@@ -40,4 +47,13 @@
 .header__link {
   text-decoration: none;
   color: black;
+}
+
+.header__user-loggedin{
+  display: flex;
+}
+
+.header__user-loggedout{
+  display: flex;
+  gap: 20px;
 }

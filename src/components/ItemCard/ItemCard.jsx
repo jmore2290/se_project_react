@@ -5,11 +5,8 @@ import { CurrentUserContext } from "../../utils/contexts/CurrentUserContext.jsx"
 function ItemCard({ isLoggedIn, item, onCardClick, onCardLike }) {
   const currentUser = useContext(CurrentUserContext);
   let isLiked;
-  console.log(isLoggedIn);
 
   if (isLoggedIn) {
-    console.log(isLiked);
-    console.log(isLoggedIn);
     isLiked = item.likes?.some((userId) => userId === currentUser._id);
   } else {
     isLiked = false;

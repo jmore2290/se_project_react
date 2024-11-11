@@ -109,7 +109,8 @@ function App() {
     addNewItem(values)
       .then((item) => {
         const card = item;
-        setClothingItems([card, ...clothingItems]);
+        console.log(card);
+        setClothingItems([...clothingItems, card]);
         closeActiveModal();
       })
       .catch(console.error);
@@ -124,7 +125,6 @@ function App() {
     deleteItem(deleteCard)
       .then(() => {
         const filterCards = clothingItems.filter((x) => x._id !== deleteCard);
-        console.log(filterCards);
         setClothingItems(filterCards);
         console.log(deleteCard);
         closeActiveModal();
@@ -137,24 +137,19 @@ function App() {
       .then((data) => {
         setActiveModal("");
         setIsLoggedIn(true);
-        console.log(data);
         loginUser({ email, password });
       })
       .catch(console.error);
   };
 
   const loginUser = ({ email, password }) => {
-    console.log(email);
-    console.log(password);
     Auth.signInUser(email, password)
       .then((data) => {
         if (data) {
           setIsLoggedIn(true);
           setCurrentUser(data.user);
-          console.log(data.token);
           setActiveModal("");
           localStorage.setItem("token", data.token);
-          console.log(localStorage.getItem("token"));
         }
       })
       .catch(console.error);
@@ -168,11 +163,10 @@ function App() {
   };
 
   const updateUser = ({ name, avatar }) => {
-    Auth.updateUser({ name, avatar })
+    Auth.updateUser( name, avatar )
       .then((data) => {
         if (data) {
-          setCurrentUser(data.user);
-          console.log(currentUser);
+          setCurrentUser(data);
           setActiveModal("");
         }
       })
@@ -182,7 +176,6 @@ function App() {
   useEffect(() => {
     getWeather(coordinates, apiKey)
       .then((data) => {
-        console.log(data);
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
       })
@@ -199,8 +192,6 @@ function App() {
       Auth.getUser(token)
         .then((res) => {
           setCurrentUser(res);
-          console.log(res.token);
-          console.log(res);
         })
         .catch((err) => {
           console.log(err);
@@ -211,6 +202,7 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
+        console.log(data);
         setClothingItems(data);
       })
       .catch(console.error);
@@ -290,6 +282,8 @@ function App() {
             isOpen={activeModal === "edit-profile"}
             closeActiveModal={closeActiveModal}
             onUpdateUser={updateUser}
+            currentUser={currentUser}
+            setCurrentUser={currentUser}
           />
         </CurrentTemperatureUnitContext.Provider>
       </CurrentUserContext.Provider>

@@ -11,30 +11,35 @@ function WeatherCard({ weatherData }) {
       item.day === weatherData.isDay && item.condition === weatherData.condition
     );
   });
-
+  console.log(weatherData);
+  console.log(weatherData.url);
+  console.log(weatherOption?.condition);
+  console.log(weatherOption);
 
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const temp = weatherData?.weather?.temperature[currentTemperatureUnit] || 999;
-  /*
-  let weatherOption;
-  if (filteredOptions.length === 0) {
-    weatherOption = defaultWeatherOptions[weatherData.isDay ? "day" : "night"];
-  } else {
-    weatherOption = filteredOptions[0];
-  }
-    */
-
-  //const weatherOptionUrl = filteredOptions[0]?.url;
-  //const weatherOptionCondition = filteredOptions[0]?.condition;
 
   return (
     <section className="weather-card">
       <p className="weather-card__temp">{`${temp}° ${currentTemperatureUnit}`}</p>
-      <img
-        src={weatherOption?.url}
-        alt={weatherOption?.condition}
-        className="weather-card__image"
-      />
+      
+       {weatherOption ? (
+        <div>
+            <img
+             src={weatherOption?.url}
+             alt={weatherOption?.condition}
+             className="weather-card__image"
+           />
+        </div>
+      ) : (
+        <div>
+          <img
+             src={new URL("../assets/day/default.png", import.meta.url).href}
+             alt={"default image"}
+             className="weather-card__image"
+          />
+        </div>
+      )}
     </section>
   );
 }

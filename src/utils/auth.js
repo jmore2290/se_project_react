@@ -37,6 +37,7 @@ const getUser = () => {
 };
 
 const updateUser = (name, avatar) => {
+  console.log(localStorage.getItem("token"));
   return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {
@@ -44,11 +45,21 @@ const updateUser = (name, avatar) => {
       authorization: `Bearer ${localStorage.getItem("token")}`,
     },
     body: JSON.stringify({ name, avatar }),
-  }).then((data) => {
-    if (data) {
-      return data;
-    }
+  }).then(processServerResponse);
+};
+
+/*
+export const updateUser = async (name, avatar, token) => {
+  return request(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ name, avatar }),
   });
 };
+*/
 
 export { signUpUser, signInUser, getUser, updateUser };

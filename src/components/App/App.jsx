@@ -109,8 +109,13 @@ function App() {
     addNewItem(values)
       .then((item) => {
         const card = item;
-        console.log(card);
-        setClothingItems([...clothingItems, card]);
+        getItems()
+         .then((data) => {
+          console.log(data);
+          setClothingItems(data);
+         })
+         .catch(console.error);
+
         closeActiveModal();
       })
       .catch(console.error);

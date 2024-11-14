@@ -8,7 +8,10 @@ const Profile = ({
   clothingArray,
   handleLogoutClick,
   handleProfileEditClick,
+  onCardLike,
+  isLoggedIn
 }) => {
+  console.log(isLoggedIn);
   return (
     <div className="profile">
       <section className="profile__sidebar">
@@ -22,6 +25,8 @@ const Profile = ({
           handleCardClick={handleCardClick}
           handleAddClick={handleAddClick}
           clothingArray={clothingArray}
+          onCardLike={onCardLike}
+          isLoggedIn={isLoggedIn}
         />
       </section>
     </div>

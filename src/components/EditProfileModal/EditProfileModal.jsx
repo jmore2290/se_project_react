@@ -1,15 +1,19 @@
 import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { CurrentUserContext } from "../../utils/contexts/CurrentUserContext.jsx";
 
-const EditProfileModal = ({ closeActiveModal, onUpdateUser, isOpen, currentUser, setCurrentUser}) => {
+const EditProfileModal = ({ closeActiveModal, onUpdateUser, isOpen}) => {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
+
+  const currentUser = useContext(CurrentUserContext);
 
   useEffect(() => {
     setName(currentUser.name);
     setAvatar(currentUser.avatar);
   }, [isOpen]);
+  
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -24,11 +28,6 @@ const EditProfileModal = ({ closeActiveModal, onUpdateUser, isOpen, currentUser,
     onUpdateUser({ name, avatar });
   };
 
-  useEffect(() => {
-    setName("");
-    setAvatar("");
-  }, [isOpen]);
-
   return (
     <ModalWithForm
       title="Change profile data"
@@ -38,23 +37,23 @@ const EditProfileModal = ({ closeActiveModal, onUpdateUser, isOpen, currentUser,
       onSubmit={handleSubmit}
     >
       <fieldset className="modal__fieldset">
-        <label htmlFor="name" className="modal__label">
+        <label htmlFor="profile-name" className="modal__label">
           Name{" "}
           <input
             type="text"
             className="modal__input"
-            id="name"
+            id="profile-name"
             placeholder="Name"
             value={name}
             onChange={handleNameChange}
           />
         </label>
-        <label htmlFor="avatar" className="modal__label">
+        <label htmlFor="profile-avatar" className="modal__label">
           Avatar Link{" "}
           <input
             type="text"
             className="modal__input"
-            id="avatar"
+            id="profile-avatar"
             placeholder="Avatar Link"
             value={avatar}
             onChange={handleAvatarChange}

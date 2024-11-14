@@ -36,7 +36,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const [currentUser, setCurrentUser] = useState("");
+  const [currentUser, setCurrentUser] = useState({});
   const [clothingItems, setClothingItems] = useState([
     {
       _id: 0,
@@ -109,12 +109,8 @@ function App() {
     addNewItem(values)
       .then((item) => {
         const card = item;
-        getItems()
-         .then((data) => {
-          console.log(data);
-          setClothingItems(data);
-         })
-         .catch(console.error);
+        console.log(item.data);
+        setClothingItems([item.data,...clothingItems]);
 
         closeActiveModal();
       })
@@ -140,7 +136,7 @@ function App() {
   const registerUser = ({ email, password, name, avatar }) => {
     Auth.signUpUser({ name, avatar, email, password })
       .then((data) => {
-        setActiveModal("");
+        closeActiveModal();
         setIsLoggedIn(true);
         loginUser({ email, password });
       })
@@ -193,10 +189,11 @@ function App() {
     console.log(localStorage.getItem("token"));
     if (localStorage.getItem("token")) {
       const token = localStorage.getItem("token");
-      setIsLoggedIn(true);
       Auth.getUser(token)
         .then((res) => {
           setCurrentUser(res);
+          setIsLoggedIn(true);
+          console.log(isLoggedIn);
         })
         .catch((err) => {
           console.log(err);
@@ -209,6 +206,7 @@ function App() {
       .then((data) => {
         console.log(data);
         setClothingItems(data);
+        console.log(isLoggedIn);
       })
       .catch(console.error);
   }, []);
@@ -241,7 +239,7 @@ function App() {
                   />
                 }
               />
-              <Route
+               <Route
                 path="/profile"
                 element={
                   <ProtectedRoute isLoggedIn={isLoggedIn}>
@@ -251,6 +249,8 @@ function App() {
                       clothingArray={clothingItems}
                       handleLogoutClick={logoutUser}
                       handleProfileEditClick={handleProfileEditClick}
+                      onCardLike={handleCardLike}
+                      isLoggedIn={isLoggedIn}
                     />
                   </ProtectedRoute>
                 }
@@ -287,8 +287,6 @@ function App() {
             isOpen={activeModal === "edit-profile"}
             closeActiveModal={closeActiveModal}
             onUpdateUser={updateUser}
-            currentUser={currentUser}
-            setCurrentUser={currentUser}
           />
         </CurrentTemperatureUnitContext.Provider>
       </CurrentUserContext.Provider>

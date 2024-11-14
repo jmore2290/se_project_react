@@ -6,7 +6,7 @@ import "./ClothesSection.css";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../utils/contexts/CurrentUserContext";
 
-const ClothesSection = ({ handleCardClick, handleAddClick, clothingArray }) => {
+const ClothesSection = ({ handleCardClick, handleAddClick, clothingArray, onCardLike, isLoggedIn }) => {
   const currentUser = useContext(CurrentUserContext);
 
   return (
@@ -30,6 +30,8 @@ const ClothesSection = ({ handleCardClick, handleAddClick, clothingArray }) => {
                 key={item._id}
                 item={item}
                 onCardClick={handleCardClick}
+                onCardLike={onCardLike}
+                isLoggedIn={isLoggedIn}
               />
             );
           })}

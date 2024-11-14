@@ -26,8 +26,8 @@ const signInUser = async (email, password) => {
   }).then(processServerResponse);
 };
 
-const getUser = () => {
-  return fetch(`${baseUrl}/users/me`, {
+const getUser = async () => {
+  return await fetch(`${baseUrl}/users/me`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

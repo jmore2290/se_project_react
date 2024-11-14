@@ -12,6 +12,8 @@ function ItemCard({ isLoggedIn, item, onCardClick, onCardLike }) {
     isLiked = false;
   }
 
+  console.log(isLoggedIn);
+
   const likeButtonClass = `${isLiked ? "card__liked" : "card__notliked"}`;
 
   const handleCardClick = () => {

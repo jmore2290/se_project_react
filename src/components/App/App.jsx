@@ -149,8 +149,8 @@ function App() {
         if (data) {
           setIsLoggedIn(true);
           setCurrentUser(data.user);
-          setActiveModal("");
           localStorage.setItem("token", data.token);
+          closeActiveModal();
         }
       })
       .catch(console.error);
@@ -168,7 +168,7 @@ function App() {
       .then((data) => {
         if (data) {
           setCurrentUser(data);
-          setActiveModal("");
+          closeActiveModal();
         }
       })
       .catch(console.error);

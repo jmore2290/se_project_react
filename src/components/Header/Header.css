@@ -39,6 +39,22 @@
   margin-right: 20px;
 }
 
+.header__user-icon {
+  height: 40px;
+  width: 40px;
+  grid-area: e;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-family: "CabinetGrotesk-Regular", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .header__date-and-location {
   font-family: "CabinetGrotesk-Bold", sans-serif;
   margin-right: auto;

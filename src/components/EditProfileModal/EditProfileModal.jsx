@@ -5,23 +5,27 @@ import { CurrentUserContext } from "../../utils/contexts/CurrentUserContext.jsx"
 
 const EditProfileModal = ({ closeActiveModal, onUpdateUser, isOpen}) => {
   const [name, setName] = useState("");
-  const [avatar, setAvatar] = useState("");
-
-  const currentUser = useContext(CurrentUserContext);
-
-  useEffect(() => {
-    setName(currentUser.name);
-    setAvatar(currentUser.avatar);
-  }, [isOpen]);
-  
 
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
 
+
+  const [avatar, setAvatar] = useState("");
+
   const handleAvatarChange = (e) => {
     setAvatar(e.target.value);
   };
+
+  const currentUser = useContext(CurrentUserContext);
+  console.log(currentUser);
+  console.log(isOpen);
+
+  useEffect(() => {
+    setName(currentUser.name);
+    setAvatar(currentUser.avatar);
+  }, [isOpen]);
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,25 +41,25 @@ const EditProfileModal = ({ closeActiveModal, onUpdateUser, isOpen}) => {
       onSubmit={handleSubmit}
     >
       <fieldset className="modal__fieldset">
-        <label htmlFor="profile-name" className="modal__label">
+        <label className="modal__label">
           Name{" "}
           <input
             type="text"
             className="modal__input"
             id="profile-name"
             placeholder="Name"
-            value={name}
+            value={name || ''}
             onChange={handleNameChange}
           />
         </label>
-        <label htmlFor="profile-avatar" className="modal__label">
+        <label className="modal__label">
           Avatar Link{" "}
           <input
             type="text"
             className="modal__input"
             id="profile-avatar"
             placeholder="Avatar Link"
-            value={avatar}
+            value={avatar || ''}
             onChange={handleAvatarChange}
           />
         </label>

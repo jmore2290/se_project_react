@@ -14,10 +14,7 @@ function Header({
   handleRegisterClick,
 }) {
   const currentUser = useContext(CurrentUserContext);
-  console.log(currentUser);
-  console.log(isLoggedIn);
-  //console.log(currentUser.name);
-  console.log(currentUser);
+
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -53,7 +50,9 @@ function Header({
                 className="header__avatar"
               />
             ) : (
-              <span>{currentUser.name}</span>
+              <div className="header__user-icon">
+                {currentUser.name[0]}
+              </div>
             )}
           </div>
         </Link>

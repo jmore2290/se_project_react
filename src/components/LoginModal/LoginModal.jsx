@@ -35,23 +35,23 @@ const LoginModal = ({ closeActiveModal, onLogin, isOpen, logToRegister}) => {
       onSubmit={handleSubmit}
     >
       <fieldset className="modal__fieldset">
-        <label htmlFor="email" className="modal__label">
+        <label className="modal__label">
           Email{" "}
           <input
             type="text"
             className="modal__input"
-            id="email"
+            id="login-email"
             placeholder="Email"
             value={email}
             onChange={handleEmailChange}
           />
         </label>
-        <label htmlFor="password" className="modal__label">
+        <label className="modal__label">
           Password{" "}
           <input
             type="text"
             className="modal__input"
-            id="password"
+            id="login-password"
             placeholder="Password"
             value={password}
             onChange={handlePasswordChange}

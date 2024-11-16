@@ -46,45 +46,45 @@ const RegisterModal = ({ closeActiveModal, onRegister, isOpen, registerToLog}) =
       closeActiveModal={closeActiveModal}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="email" className="modal__label">
+      <label className="modal__label">
         Email{" "}
         <input
           type="text"
           className="modal__input"
-          id="email"
+          id="register-email"
           placeholder="Email"
           value={email}
           onChange={handleEmailChange}
         />
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label className="modal__label">
         Password{" "}
         <input
           type="text"
           className="modal__input"
-          id="password"
+          id="register-password"
           placeholder="Password"
           value={password}
           onChange={handlePasswordChange}
         />
       </label>
-      <label htmlFor="name" className="modal__label">
+      <label className="modal__label">
         Name{" "}
         <input
           type="text"
           className="modal__input"
-          id="name"
+          id="register-name"
           placeholder="Name"
           value={name}
           onChange={handleNameChange}
         />
       </label>
-      <label htmlFor="avatar" className="modal__label">
+      <label className="modal__label">
         Avatar URL{" "}
         <input
           type="text"
           className="modal__input"
-          id="avatar"
+          id="register-avatar"
           placeholder="Avatar URL"
           value={avatar}
           onChange={handleAvatarChange}

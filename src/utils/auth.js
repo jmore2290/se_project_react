@@ -1,5 +1,8 @@
 import { processServerResponse } from "./processServResponse";
-const baseUrl = "http://localhost:3001";
+const baseUrl = process.env.NODE_ENV === "production" 
+  ? "https://api.ohbah.com"
+  : "http://localhost:3001";
+
 
 function signUpUser({ name, avatar, email, password }) {
   return fetch(`${baseUrl}/signup`, {

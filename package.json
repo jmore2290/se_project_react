@@ -9,7 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && scp -r ./dist/* justin.muirhead92@blind.ohbah.com:/home/justin.muirhead92/frontend"
   },
   "dependencies": {
     "react": "^18.2.0",

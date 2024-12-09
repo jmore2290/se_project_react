@@ -14,7 +14,7 @@ function Header({
   handleRegisterClick,
 }) {
   const currentUser = useContext(CurrentUserContext);
-
+  console.log(currentUser);
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",

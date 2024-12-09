@@ -20,7 +20,7 @@ function signUpUser({ name, avatar, email, password }) {
 }
 
 const signInUser = async (email, password) => {
-  return fetch(`${baseUrl}/signin`, {
+  return await fetch(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -30,6 +30,7 @@ const signInUser = async (email, password) => {
 };
 
 const getUser = async () => {
+  console.log(baseUrl);
   return await fetch(`${baseUrl}/users/me`, {
     method: "GET",
     headers: {

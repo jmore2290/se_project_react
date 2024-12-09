@@ -136,19 +136,32 @@ function App() {
   const registerUser = ({ email, password, name, avatar }) => {
     Auth.signUpUser({ name, avatar, email, password })
       .then((data) => {
-        closeActiveModal();
-        setIsLoggedIn(true);
+        
+        //setIsLoggedIn(true);
+        //setCurrentUser(data.user);
+        //localStorage.setItem("token", data.token);
+        //console.log(data.user);
+          //console.log(data.user.name);
+          //console.log(data);
+        //closeActiveModal();
         loginUser({ email, password });
+        closeActiveModal();
       })
       .catch(console.error);
   };
 
   const loginUser = ({ email, password }) => {
+    console.log(email);
+    console.log(password);
     Auth.signInUser(email, password)
       .then((data) => {
         if (data) {
           setIsLoggedIn(true);
           setCurrentUser(data.user);
+          console.log(data.user);
+          console.log(data.user.name);
+          console.log(data);
+          console.log(data.token);
           localStorage.setItem("token", data.token);
           closeActiveModal();
         }

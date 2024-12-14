@@ -1,6 +1,6 @@
 import { processServerResponse } from "./processServResponse";
 const baseUrl = process.env.NODE_ENV === "production" 
-  ? "https://api.ohbah.com"
+  ? "https://api.blind.ohbah.com"
   : "http://localhost:3001";
 
 

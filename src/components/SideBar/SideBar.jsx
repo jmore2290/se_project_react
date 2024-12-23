@@ -1,4 +1,3 @@
-import avatar from "../../assets/avatar.svg";
 import "./SideBar.css";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../utils/contexts/CurrentUserContext.jsx";

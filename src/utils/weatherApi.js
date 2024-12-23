@@ -12,7 +12,6 @@ export const filterWeatherData = (data) => {
   result.temp = { F: data.main.temp };
   console.log(result.temp);
   result.type = getWeatherType(data.main.temp);
-  const main = data.main;
   result.weather = {
     temperature: {
       F: Math.round(data.main.temp),

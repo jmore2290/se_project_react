@@ -1,4 +1,3 @@
-import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState, useEffect, useContext } from "react";
 import { CurrentUserContext } from "../../utils/contexts/CurrentUserContext.jsx";
@@ -24,6 +23,7 @@ const EditProfileModal = ({ closeActiveModal, onUpdateUser, isOpen}) => {
   useEffect(() => {
     setName(currentUser.name);
     setAvatar(currentUser.avatar);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
  
 

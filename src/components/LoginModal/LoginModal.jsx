@@ -1,7 +1,5 @@
-import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import "./LoginModal.css";
 
 const LoginModal = ({ closeActiveModal, onLogin, isOpen, logToRegister}) => {

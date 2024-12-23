@@ -24,6 +24,9 @@ module.exports = {
   overrides: [
     {
       // Without this, `npx eslint .` doesn't run on jsx files.
+      env: {
+        node: true,
+      },
       files: ["*.js", "*.jsx"],
     },
   ],

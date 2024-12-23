@@ -1,6 +1,3 @@
-import Sidebar from "../SideBar/SideBar";
-import { defaultClothingItems } from "../../utils/constants";
-import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemCard from "../ItemCard/ItemCard";
 import "./ClothesSection.css";
 import { useContext } from "react";

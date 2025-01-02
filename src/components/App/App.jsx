@@ -157,11 +157,12 @@ function App() {
       .then((data) => {
         if (data) {
           setIsLoggedIn(true);
-          setCurrentUser(data.user);
-          console.log(data.user);
-          console.log(data.user.name);
-          console.log(data);
-          console.log(data.token);
+          //console.log(data.token);
+          //setCurrentUser(data.user);
+          //console.log(data.user);
+          //console.log(data.user.name);
+          //console.log(data);
+          //console.log(data.token);
           localStorage.setItem("token", data.token);
           closeActiveModal();
         }

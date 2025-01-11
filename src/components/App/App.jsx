@@ -4,7 +4,7 @@ import "./App.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { Routes, Route } from "react-router-dom";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Main from "../Main/Main";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
@@ -108,7 +108,6 @@ function App() {
     console.log(values.name);
     addNewItem(values)
       .then((item) => {
-        const card = item;
         console.log(item.data);
         setClothingItems([item.data,...clothingItems]);
 
@@ -135,7 +134,7 @@ function App() {
 
   const registerUser = ({ email, password, name, avatar }) => {
     Auth.signUpUser({ name, avatar, email, password })
-      .then((data) => {
+      .then(() => {
         
         //setIsLoggedIn(true);
         //setCurrentUser(data.user);
@@ -156,21 +155,30 @@ function App() {
     Auth.signInUser(email, password)
       .then((data) => {
         if (data) {
-          setIsLoggedIn(true);
-          //console.log(data.token);
-          //setCurrentUser(data.user);
-          //console.log(data.user);
-          //console.log(data.user.name);
-          //console.log(data);
+          console.log(data);       
           //console.log(data.token);
           localStorage.setItem("token", data.token);
-          closeActiveModal();
+          getCurrentUser(data.token).then(() => closeActiveModal());
         }
       })
       .catch(console.error);
   };
 
-  const logoutUser = ({}) => {
+  function getCurrentUser(token){
+    // this code was taken straight from the useEffect
+    return Auth.getUser(token) // we add return so we can use the .then on login
+       .then((res) => {
+        console.log(res);
+        setIsLoggedIn(true);
+         setCurrentUser(res);
+         console.log(isLoggedIn);
+       })
+       .catch((err) => {
+         console.log(err);
+       });
+   }
+
+  const logoutUser = () => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
     setCurrentUser(null);
@@ -203,7 +211,7 @@ function App() {
     console.log(localStorage.getItem("token"));
     if (localStorage.getItem("token")) {
       const token = localStorage.getItem("token");
-      Auth.getUser(token)
+      /*Auth.getUser(token)
         .then((res) => {
           setCurrentUser(res);
           setIsLoggedIn(true);
@@ -212,8 +220,10 @@ function App() {
         .catch((err) => {
           console.log(err);
         });
+        */
+       getCurrentUser(token);
     }
-  }, [isLoggedIn]);
+  }, []);
 
   useEffect(() => {
     getItems()
